@@ -1,0 +1,61 @@
+/* Main */
+.container {
+  width: 100%;
+  height: 100%;
+  /* min-height: 100%; */
+}
+
+.contents {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+
+  /* background-image: url("assets/mario-bg.jpg"); */
+  /* background-image: url("assets/bg.png"); */
+  background-color: rgb(20, 18, 18);
+  /* border: 1px solid green; */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Game */
+.game-container {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.game-title {
+  display: flex;
+  justify-content: center;
+
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 30px;
+  /* background-color: black; */
+}
+
+:root {
+  --width: 1280px;
+  --height: 720px;
+  --scale: 1;
+}
+
+#canvas {
+  width: var(--width);
+  height: var(--height);
+  border: 2px solid rgb(116, 61, 61);
+  margin: auto;
+  box-sizing: content-box;
+  box-shadow: 20px 20px 38px #000000;
+}

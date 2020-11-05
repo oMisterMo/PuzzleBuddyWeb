@@ -1,0 +1,132 @@
+{
+  "program": {
+    "fileInfos": {
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
+        "signature": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
+        "affectsGlobalScope": true
+      },
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.d.ts": {
+        "version": "dc47c4fa66b9b9890cf076304de2a9c5201e94b740cffdf09f87296d877d71f6",
+        "signature": "dc47c4fa66b9b9890cf076304de2a9c5201e94b740cffdf09f87296d877d71f6",
+        "affectsGlobalScope": false
+      },
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "9affb0a2ddc57df5b8174c0af96c288d697a262e5bc9ca1f544c999dc64a91e6",
+        "signature": "9affb0a2ddc57df5b8174c0af96c288d697a262e5bc9ca1f544c999dc64a91e6",
+        "affectsGlobalScope": true
+      },
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.core.d.ts": {
+        "version": "63e0cc12d0f77394094bd19e84464f9840af0071e5b9358ced30511efef1d8d2",
+        "signature": "63e0cc12d0f77394094bd19e84464f9840af0071e5b9358ced30511efef1d8d2",
+        "affectsGlobalScope": true
+      },
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+        "version": "43fb1d932e4966a39a41b464a12a81899d9ae5f2c829063f5571b6b87e6d2f9c",
+        "signature": "43fb1d932e4966a39a41b464a12a81899d9ae5f2c829063f5571b6b87e6d2f9c",
+        "affectsGlobalScope": true
+      },
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+        "version": "cdccba9a388c2ee3fd6ad4018c640a471a6c060e96f1232062223063b0a5ac6a",
+        "signature": "cdccba9a388c2ee3fd6ad4018c640a471a6c060e96f1232062223063b0a5ac6a",
+        "affectsGlobalScope": true
+      },
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+        "version": "42f5e41e5893da663dbf0394268f54f1da4b43dc0ddd2ea4bf471fe5361d6faf",
+        "signature": "42f5e41e5893da663dbf0394268f54f1da4b43dc0ddd2ea4bf471fe5361d6faf",
+        "affectsGlobalScope": true
+      },
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+        "version": "0b7a905675e6cb4211c128f0a3aa47d414b275180a299a9aad5d3ec298abbfc4",
+        "signature": "0b7a905675e6cb4211c128f0a3aa47d414b275180a299a9aad5d3ec298abbfc4",
+        "affectsGlobalScope": true
+      },
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+        "version": "dfff68b3c34338f6b307a25d4566de15eed7973b0dc5d69f9fde2bcac1c25315",
+        "signature": "dfff68b3c34338f6b307a25d4566de15eed7973b0dc5d69f9fde2bcac1c25315",
+        "affectsGlobalScope": true
+      },
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+        "version": "cb609802a8698aa28b9c56331d4b53f590ca3c1c3a255350304ae3d06017779d",
+        "signature": "cb609802a8698aa28b9c56331d4b53f590ca3c1c3a255350304ae3d06017779d",
+        "affectsGlobalScope": true
+      },
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+        "version": "3013574108c36fd3aaca79764002b3717da09725a36a6fc02eac386593110f93",
+        "signature": "3013574108c36fd3aaca79764002b3717da09725a36a6fc02eac386593110f93",
+        "affectsGlobalScope": true
+      },
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+        "version": "4670208dd7da9d6c774ab1b75c1527a810388c7989c4905de6aaea8561cb9dce",
+        "signature": "4670208dd7da9d6c774ab1b75c1527a810388c7989c4905de6aaea8561cb9dce",
+        "affectsGlobalScope": true
+      },
+      "./src/test.ts": {
+        "version": "85a828d57b6969e29b33674e792633e2828e400407fcf1ce5d865b98904ff77f",
+        "signature": "f051066813a9fdb8e1c5f898b25dc76d57645a708a60d811995c4c599d3a6c7d",
+        "affectsGlobalScope": true
+      },
+      "./src/game/tile.ts": {
+        "version": "bd2a9b5b48187dd47e7a11657e85c13d0bb184aa5ace41d9bcf350944aaedc5c",
+        "signature": "a4223a03a3bea3f7f24d1582c7c8147be56bf5228a44cf0bf85e19010ff528a2",
+        "affectsGlobalScope": true
+      },
+      "./src/game/world.ts": {
+        "version": "b965340f0a133e036b1e1d8a90efe63a7188dd3a4498c5e57f4923beae4f4d2e",
+        "signature": "ed4fe5b722e77508b77dcde82a6dd5b9934a39628d530bcad28eda4371d2899b",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/pixi.js/pixi.js.d.ts": {
+        "version": "0b3761f25fd8f8a8b8a3e60679fae9fdc22306e5d42ab65445b16a21217df2aa",
+        "signature": "0b3761f25fd8f8a8b8a3e60679fae9fdc22306e5d42ab65445b16a21217df2aa",
+        "affectsGlobalScope": true
+      },
+      "./src/game/game.ts": {
+        "version": "5a3ea19dd0c2bcfe4df853dd834ee58aea91b3fe9d7fbba9200f6475fa7bb5ff",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
+        "affectsGlobalScope": false
+      }
+    },
+    "options": {
+      "incremental": true,
+      "target": 99,
+      "module": 1,
+      "lib": [
+        "lib.dom.d.ts",
+        "lib.es2015.d.ts"
+      ],
+      "strict": true,
+      "moduleResolution": 2,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "configFilePath": "./tsconfig.json"
+    },
+    "referencedMap": {
+      "./src/game/game.ts": [
+        "./node_modules/pixi.js/pixi.js.d.ts"
+      ]
+    },
+    "exportedModulesMap": {},
+    "semanticDiagnosticsPerFile": [
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.dom.d.ts",
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.d.ts",
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "../../../../appdata/roaming/nvm/v13.9.0/node_modules/typescript/lib/lib.es5.d.ts",
+      "./node_modules/pixi.js/pixi.js.d.ts",
+      "./src/game/game.ts",
+      "./src/game/tile.ts",
+      "./src/game/world.ts",
+      "./src/test.ts"
+    ]
+  },
+  "version": "3.9.5"
+}
