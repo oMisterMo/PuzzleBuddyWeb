@@ -1,4 +1,4 @@
-/src/game/*.js
+/src/game/**/*.js
 
 .DS_Store
 node_modules

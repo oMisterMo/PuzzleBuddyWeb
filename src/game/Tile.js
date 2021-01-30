@@ -4,15 +4,8 @@ var Tile = /** @class */ (function () {
     function Tile(x, y, type, tile, 
     // sprite: PIXI.Sprite,
     stage) {
-        //All type of tiles
-        // public static TILE_EMPTY = 0;
-        // public static TILE_BOX = 1;
-        // public static TILE_BOX_HOME = 2;
-        // public static TILE_BLOCK = 3;
-        // public static TILE_HOME = 4;
-        // public static TILE_PLAYER = 5;
-        // protected tileType = Tile.TILE_EMPTY;
-        this.tileType = "EMPTY";
+        //HOME/PLAYER/HOME...
+        this.tileType = Tile.EMPTY;
         this.x = x;
         this.y = y;
         this.tileType = type; //Should be initialised with empty
@@ -20,22 +13,22 @@ var Tile = /** @class */ (function () {
         // this.playerTile = { x: tile.x, y: tile.y };
         //Add sprite
         switch (this.tileType) {
-            case "EMPTY":
+            case Tile.EMPTY:
                 this.sprite = new Sprite(resources[TILE_BLANK].texture);
                 break;
-            case "BOX":
+            case Tile.BOX:
                 this.sprite = new Sprite(resources[TILE_BOX].texture);
                 break;
-            case "BOX_HOME":
+            case Tile.BOX_HOME:
                 this.sprite = new Sprite(resources[TILE_BOX_HOME].texture);
                 break;
-            case "BLOCK":
+            case Tile.BLOCK:
                 this.sprite = new Sprite(resources[TILE_BLOCK].texture);
                 break;
-            case "HOME":
+            case Tile.HOME:
                 this.sprite = new Sprite(resources[TILE_HOME].texture);
                 break;
-            case "PLAYER":
+            case Tile.PLAYER:
                 //Player tile left blank, use class player.
                 this.sprite = new Sprite(resources[TILE_BLANK].texture);
                 break;
@@ -61,5 +54,11 @@ var Tile = /** @class */ (function () {
     Tile.prototype.getSprite = function () {
         return this.sprite;
     };
+    Tile.EMPTY = "EMPTY";
+    Tile.BOX = "BOX";
+    Tile.BOX_HOME = "BOX_HOME";
+    Tile.BLOCK = "BLOCK";
+    Tile.HOME = "HOME";
+    Tile.PLAYER = "PLAYER";
     return Tile;
 }());

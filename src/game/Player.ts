@@ -1,10 +1,10 @@
 console.log("Player loading...");
 class Player {
-  private position: Point;
+  private pos: Point;
   public sprite: PIXI.Sprite;
 
   constructor(x: number, y: number) {
-    this.position = { x, y };
+    this.pos = { x, y };
     this.sprite = new Sprite(resources[TILE_PLAYER].texture);
   }
 
@@ -14,11 +14,11 @@ class Player {
   }
 
   public setPosition(x: number, y: number) {
-    this.position.x = x;
-    this.position.y = y;
+    this.pos.x = x;
+    this.pos.y = y;
   }
 
   public getPosition() {
-    return this.position;
+    return this.pos;
   }
 }

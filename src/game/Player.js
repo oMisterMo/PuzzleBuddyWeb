@@ -2,7 +2,7 @@
 console.log("Player loading...");
 var Player = /** @class */ (function () {
     function Player(x, y) {
-        this.position = { x: x, y: y };
+        this.pos = { x: x, y: y };
         this.sprite = new Sprite(resources[TILE_PLAYER].texture);
     }
     Player.prototype.move = function (x, y) {
@@ -10,11 +10,11 @@ var Player = /** @class */ (function () {
         this.sprite.position.set(x, y);
     };
     Player.prototype.setPosition = function (x, y) {
-        this.position.x = x;
-        this.position.y = y;
+        this.pos.x = x;
+        this.pos.y = y;
     };
     Player.prototype.getPosition = function () {
-        return this.position;
+        return this.pos;
     };
     return Player;
 }());

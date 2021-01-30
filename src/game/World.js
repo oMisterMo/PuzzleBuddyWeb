@@ -33,44 +33,45 @@ var World = /** @class */ (function () {
         }
         for (var y = 0; y < this.y_tiles; y++) {
             for (var x = 0; x < this.x_tiles; x++) {
-                var tile = "EMPTY";
-                var tileType = level1.data.charAt(i);
-                switch (tileType) {
+                var tile = Tile.EMPTY;
+                var pixel = level1.data.charAt(i);
+                switch (pixel) {
                     case ".":
                         //blank = 0
-                        tile = "EMPTY";
+                        tile = Tile.EMPTY;
                         break;
                     case "x":
                         //wall = 3
-                        tile = "BLOCK";
+                        tile = Tile.BLOCK;
                         break;
                     case "o":
                         //box = 1
-                        tile = "BOX";
+                        tile = Tile.BOX;
                         break;
                     case "O":
                         //box on home = 2
-                        tile = "BOX_HOME";
+                        tile = Tile.BOX_HOME;
                         break;
                     case "p":
                         //player = 5
-                        tile = "PLAYER";
+                        tile = Tile.PLAYER;
                         this.player.setPosition(x, y);
                         // this.player.position.x = x;
                         // this.player.position.y = y;
                         break;
                     case "h":
                         //home = 4
-                        tile = "HOME";
+                        tile = Tile.HOME;
                         break;
                     default:
-                        tile = "EMPTY";
+                        tile = Tile.EMPTY;
                 }
                 this.tiles[y][x] = new Tile(x * this.TILE_WIDTH, y * this.TILE_HEIGHT, tile, { x: x, y: y }, currentLevel);
-                if (this.tiles[y][x].getTileType() == "PLAYER") {
+                //Now init player if found
+                if (this.tiles[y][x].getTileType() == Tile.PLAYER) {
                     // this.player = this.tiles[y][x];
                     // this.player = new Player(x, y);
-                    this.tiles[y][x].setTileType("EMPTY"); //The player is drawn on its own layer
+                    this.tiles[y][x].setTileType(Tile.EMPTY); //The player is drawn on its own layer
                     this.playerTile = this.tiles[y][x];
                     this.player.move(this.playerTile.getX(), this.playerTile.getY());
                     console.log("playerrr: ", this.player);
@@ -300,10 +301,9 @@ var World = /** @class */ (function () {
         }
     };
     World.prototype.move = function (dir, tile) {
-        // if (this.playerTile) {
         switch (dir) {
             case "UP":
-                if (tile.getTileType() != "BLOCK") {
+                if (tile.getTileType() != Tile.BLOCK) {
                     console.log("move up...");
                     // this.playerTile.move(tile.getX(), tile.getY());
                     this.player.move(tile.getX(), tile.getY());
@@ -316,7 +316,7 @@ var World = /** @class */ (function () {
                 }
                 break;
             case "DOWN":
-                if (tile.getTileType() != "BLOCK") {
+                if (tile.getTileType() != Tile.BLOCK) {
                     console.log("move down...");
                     this.player.move(tile.getX(), tile.getY());
                     this.player.setPosition(tile.pos.x, tile.pos.y);
@@ -326,7 +326,7 @@ var World = /** @class */ (function () {
                 }
                 break;
             case "LEFT":
-                if (tile.getTileType() != "BLOCK") {
+                if (tile.getTileType() != Tile.BLOCK) {
                     console.log("move left...");
                     this.player.move(tile.getX(), tile.getY());
                     this.player.setPosition(tile.pos.x, tile.pos.y);
@@ -336,7 +336,7 @@ var World = /** @class */ (function () {
                 }
                 break;
             case "RIGHT":
-                if (tile.getTileType() != "BLOCK") {
+                if (tile.getTileType() != Tile.BLOCK) {
                     console.log("move right...");
                     this.player.move(tile.getX(), tile.getY());
                     this.player.setPosition(tile.pos.x, tile.pos.y);

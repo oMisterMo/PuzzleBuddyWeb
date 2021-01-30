@@ -1,21 +1,22 @@
 console.log("Tile loading...");
 class Tile {
-  //All type of tiles
-  // public static TILE_EMPTY = 0;
-  // public static TILE_BOX = 1;
-  // public static TILE_BOX_HOME = 2;
-  // public static TILE_BLOCK = 3;
-  // public static TILE_HOME = 4;
-  // public static TILE_PLAYER = 5;
-  // protected tileType = Tile.TILE_EMPTY;
-  protected tileType: TileType = "EMPTY";
+  public static EMPTY: TileType = "EMPTY";
+  public static BOX: TileType = "BOX";
+  public static BOX_HOME: TileType = "BOX_HOME";
+  public static BLOCK: TileType = "BLOCK";
+  public static HOME: TileType = "HOME";
+  public static PLAYER: TileType = "PLAYER";
 
+  //HOME/PLAYER/HOME...
+  protected tileType: TileType = Tile.EMPTY;
+
+  //The screen coordinates
   private x: number;
   private y: number;
-  public pos: Point; //currents tile position in the array (const)
-  // public playerTile: Point;
+  //currents tile position in the array (const)
+  public pos: Point;
 
-  // private sprite = new PIXI.Sprite();
+  //The sprite holds the postion drawn to the screen
   protected sprite: PIXI.Sprite;
 
   constructor(
@@ -34,22 +35,22 @@ class Tile {
 
     //Add sprite
     switch (this.tileType) {
-      case "EMPTY":
+      case Tile.EMPTY:
         this.sprite = new Sprite(resources[TILE_BLANK].texture);
         break;
-      case "BOX":
+      case Tile.BOX:
         this.sprite = new Sprite(resources[TILE_BOX].texture);
         break;
-      case "BOX_HOME":
+      case Tile.BOX_HOME:
         this.sprite = new Sprite(resources[TILE_BOX_HOME].texture);
         break;
-      case "BLOCK":
+      case Tile.BLOCK:
         this.sprite = new Sprite(resources[TILE_BLOCK].texture);
         break;
-      case "HOME":
+      case Tile.HOME:
         this.sprite = new Sprite(resources[TILE_HOME].texture);
         break;
-      case "PLAYER":
+      case Tile.PLAYER:
         //Player tile left blank, use class player.
         this.sprite = new Sprite(resources[TILE_BLANK].texture);
         break;
