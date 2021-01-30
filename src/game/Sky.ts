@@ -1,3 +1,4 @@
+console.log("Sky loading...");
 class Sky {
   private sky: PIXI.Container;
   private NO_OF_CLOUDS = 2; //7 clouds available
@@ -10,7 +11,7 @@ class Sky {
       this.clouds[i] = new Sprite(resources[CLOUDS[i]].texture);
     }
 
-    //Add clodus to scene
+    //Add clouds to scene
     for (let cloud of this.clouds) {
       //set random pos
       cloud.x = Math.random() * SCREEN_WIDTH + cloud.width;

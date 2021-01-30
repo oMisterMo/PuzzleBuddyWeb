@@ -1,4 +1,5 @@
 "use strict";
+console.log("Sky loading...");
 var Sky = /** @class */ (function () {
     function Sky(stage) {
         this.NO_OF_CLOUDS = 2; //7 clouds available
@@ -7,7 +8,7 @@ var Sky = /** @class */ (function () {
         for (var i = 0; i < this.NO_OF_CLOUDS; i++) {
             this.clouds[i] = new Sprite(resources[CLOUDS[i]].texture);
         }
-        //Add clodus to scene
+        //Add clouds to scene
         for (var _i = 0, _a = this.clouds; _i < _a.length; _i++) {
             var cloud = _a[_i];
             //set random pos

@@ -1,7 +1,7 @@
 // class Assets{
 
 // }
-
+console.log("Assets loading...");
 //Level
 const levels = "assets/levels/levels.json";
 
@@ -39,8 +39,6 @@ const WORLD1 = (() => {
   }
   return arr;
 })();
-
-console.log("WORLD1: ", WORLD1);
 
 function loadAssets() {
   let assets = [

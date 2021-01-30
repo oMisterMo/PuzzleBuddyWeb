@@ -1,50 +1,57 @@
+console.log("Tile loading...");
 class Tile {
   //All type of tiles
-  public static TILE_EMPTY = 0;
-  public static TILE_BOX = 1;
-  public static TILE_BOX_HOME = 2;
-  public static TILE_BLOCK = 3;
-  public static TILE_HOME = 4;
-  public static TILE_PLAYER = 5;
-  private tileType = Tile.TILE_EMPTY;
+  // public static TILE_EMPTY = 0;
+  // public static TILE_BOX = 1;
+  // public static TILE_BOX_HOME = 2;
+  // public static TILE_BLOCK = 3;
+  // public static TILE_HOME = 4;
+  // public static TILE_PLAYER = 5;
+  // protected tileType = Tile.TILE_EMPTY;
+  protected tileType: TileType = "EMPTY";
 
   private x: number;
   private y: number;
+  public pos: Point; //currents tile position in the array (const)
+  // public playerTile: Point;
 
   // private sprite = new PIXI.Sprite();
-  private sprite: PIXI.Sprite;
+  protected sprite: PIXI.Sprite;
 
   constructor(
     x: number,
     y: number,
-    type: number,
+    type: TileType,
+    tile: Point,
     // sprite: PIXI.Sprite,
     stage: PIXI.Container
   ) {
-    //Set sprite box
     this.x = x;
     this.y = y;
     this.tileType = type; //Should be initialised with empty
+    this.pos = tile;
+    // this.playerTile = { x: tile.x, y: tile.y };
 
     //Add sprite
     switch (this.tileType) {
-      case Tile.TILE_EMPTY:
+      case "EMPTY":
         this.sprite = new Sprite(resources[TILE_BLANK].texture);
         break;
-      case Tile.TILE_BOX:
+      case "BOX":
         this.sprite = new Sprite(resources[TILE_BOX].texture);
         break;
-      case Tile.TILE_BOX_HOME:
+      case "BOX_HOME":
         this.sprite = new Sprite(resources[TILE_BOX_HOME].texture);
         break;
-      case Tile.TILE_BLOCK:
+      case "BLOCK":
         this.sprite = new Sprite(resources[TILE_BLOCK].texture);
         break;
-      case Tile.TILE_HOME:
+      case "HOME":
         this.sprite = new Sprite(resources[TILE_HOME].texture);
         break;
-      case Tile.TILE_PLAYER:
-        this.sprite = new Sprite(resources[TILE_PLAYER].texture);
+      case "PLAYER":
+        //Player tile left blank, use class player.
+        this.sprite = new Sprite(resources[TILE_BLANK].texture);
         break;
       default:
         // throw new Error();
@@ -54,38 +61,23 @@ class Tile {
     this.sprite.position.set(x, y);
   }
 
-  public setPos(x: number, y: number) {
-    this.sprite.position.set(x, y);
+  public setTileType(type: TileType) {
+    this.tileType = type;
   }
 
-  public setTileType(tileType: number) {
-    this.tileType = tileType;
-    this.updateSprite();
+  public getTileType() {
+    return this.tileType;
   }
 
-  public updateSprite() {
-    switch (this.tileType) {
-      case Tile.TILE_EMPTY:
-        this.sprite = new Sprite(resources[TILE_BLANK].texture);
-        break;
-      case Tile.TILE_BOX:
-        this.sprite = new Sprite(resources[TILE_BOX].texture);
-        break;
-      case Tile.TILE_BOX_HOME:
-        this.sprite = new Sprite(resources[TILE_BOX_HOME].texture);
-        break;
-      case Tile.TILE_BLOCK:
-        this.sprite = new Sprite(resources[TILE_BLOCK].texture);
-        break;
-      case Tile.TILE_HOME:
-        this.sprite = new Sprite(resources[TILE_HOME].texture);
-        break;
-      case Tile.TILE_PLAYER:
-        this.sprite = new Sprite(resources[TILE_PLAYER].texture);
-        break;
-      default:
-        // throw new Error();
-        this.sprite = new Sprite(resources[TILE_BLANK].texture);
-    }
+  public getX() {
+    return this.x;
+  }
+
+  public getY() {
+    return this.y;
+  }
+
+  public getSprite() {
+    return this.sprite;
   }
 }

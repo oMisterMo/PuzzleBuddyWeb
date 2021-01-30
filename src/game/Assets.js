@@ -1,6 +1,7 @@
 "use strict";
 // class Assets{
 // }
+console.log("Assets loading...");
 //Level
 var levels = "assets/levels/levels.json";
 //Main tiles
@@ -34,7 +35,6 @@ var WORLD1 = (function () {
     }
     return arr;
 })();
-console.log("WORLD1: ", WORLD1);
 function loadAssets() {
     var assets = [
         TILE_BLANK,

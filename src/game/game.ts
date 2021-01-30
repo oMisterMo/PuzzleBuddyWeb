@@ -1,7 +1,7 @@
 // import * as PIXI from "pixi.js";
 
+console.log("maing game loading...");
 PIXI.utils.sayHello("hello mo");
-console.log("pixi.js app");
 const SCREEN_WIDTH = 640 * 2;
 const SCREEN_HEIGHT = 360 * 2;
 
@@ -31,9 +31,11 @@ app.renderer.backgroundColor = 0x0;
 // app.renderer.view.style.display = "flex";
 
 //LOAD ASSETS
+console.log("PIXI.TextureCache", PIXI.utils.TextureCache);
 const assets = loadAssets();
 console.log("assets: ", assets);
 loader.add(assets).load(setup);
+console.log("PIXI.TextureCache", PIXI.utils.TextureCache);
 
 let state: (delta: number) => void;
 
@@ -43,8 +45,8 @@ let sky: Sky;
 let world: World;
 // let tiles = world.getTiles();
 
-let debug = 1; //0 for none
-let graphic: PIXI.Graphics;
+let debug = 0; //0 false
+// let graphic: PIXI.Graphics;
 let debugText = "Puzzle Buddy! by DsMo";
 let text = new PIXI.Text(debugText, {
   fontFamily: "Arial",
@@ -73,7 +75,7 @@ function initGame() {
   //Create world and add world to gameScene
   world = new World(gameScene);
 
-  graphic = new PIXI.Graphics();
+  // graphic = new PIXI.Graphics();
 
   if (debug) {
     gameScene.interactive = true;
