@@ -416,7 +416,7 @@ class World {
           this.player.move(tile.getX(), tile.getY());
           this.player.setPosition(tile.pos.x, tile.pos.y);
         } else {
-          console.log("wall below me");
+          console.log("wall below");
         }
         break;
       case "LEFT":
