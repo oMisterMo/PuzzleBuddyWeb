@@ -1,7 +1,7 @@
 console.log("World loading...");
 class World {
-  public TILE_WIDTH = 64;
-  public TILE_HEIGHT = 64;
+  public static TILE_WIDTH = 64;
+  public static TILE_HEIGHT = 64;
 
   //The largest size of our world
   public static NO_OF_TILES_X = 18; //20 total tiles (-2 padding)
@@ -94,8 +94,8 @@ class World {
         }
 
         this.tiles[y][x] = new Tile(
-          x * this.TILE_WIDTH,
-          y * this.TILE_HEIGHT,
+          x * World.TILE_WIDTH,
+          y * World.TILE_HEIGHT,
           tile,
           { x, y },
           currentLevel
@@ -103,8 +103,6 @@ class World {
 
         //Now init player if found
         if (this.tiles[y][x].getTileType() == Tile.PLAYER) {
-          // this.player = this.tiles[y][x];
-          // this.player = new Player(x, y);
           this.tiles[y][x].setTileType(Tile.EMPTY); //The player is drawn on its own layer
 
           this.playerTile = this.tiles[y][x];
@@ -289,7 +287,6 @@ class World {
       const pos = this.player.getPosition();
       const x = pos.x;
       const y = pos.y;
-      let p: Point = { x, y };
       //get the players tile
       // console.log("player tile: ", p);
 
@@ -307,7 +304,7 @@ class World {
         if (debug) {
           this.drawBounds(top);
         }
-        if (touch.x == top.pos.x && touch.y == top.pos.y) {
+        if (this.touchTile(touch, top)) {
           this.move("UP", top);
         }
       }
@@ -316,7 +313,7 @@ class World {
         if (debug) {
           this.drawBounds(bottom);
         }
-        if (touch.x == bottom.pos.x && touch.y == bottom.pos.y) {
+        if (this.touchTile(touch, bottom)) {
           this.move("DOWN", bottom);
         }
       }
@@ -325,7 +322,7 @@ class World {
         if (debug) {
           this.drawBounds(left);
         }
-        if (touch.x == left.pos.x && touch.y == left.pos.y) {
+        if (this.touchTile(touch, left)) {
           this.move("LEFT", left);
         }
       }
@@ -334,7 +331,7 @@ class World {
         if (debug) {
           this.drawBounds(right);
         }
-        if (touch.x == right.pos.x && touch.y == right.pos.y) {
+        if (this.touchTile(touch, right)) {
           this.move("RIGHT", right);
         }
       }
@@ -398,12 +395,25 @@ class World {
   private move(dir: Dir, tile: Tile) {
     switch (dir) {
       case "UP":
-        if (tile.getTileType() != Tile.BLOCK) {
+        if (!this.isWall(tile)) {
           console.log("move up...");
           // this.playerTile.move(tile.getX(), tile.getY());
 
-          this.player.move(tile.getX(), tile.getY());
-          this.player.setPosition(tile.pos.x, tile.pos.y);
+          this.player.move(tile.getX(), tile.getY()); //move sprite image
+          this.player.setPosition(tile.pos.x, tile.pos.y); //set the tile position
+
+          //I WANT A SINGLE MOVE FUNCTIONS that sets the sprite position automatically based on the tile position
+
+          /**
+           * 0,0    0,1   0,2   0,3   0,4
+           * 0,1    1,1   2,1   3,1   4,1
+           * 0,2    1,2   2,2   3,2   4,2
+           * 0,3    1,3   2,3   3,3   4,3
+           * 0,4    1,4   2,4   3,4   4,4
+           *
+           * 0      64    128   192   256
+           */
+
           // this.player.position.x = tile.tile.x;
           // this.player.position.y = tile.tile.y;
         } else {
@@ -411,7 +421,7 @@ class World {
         }
         break;
       case "DOWN":
-        if (tile.getTileType() != Tile.BLOCK) {
+        if (!this.isWall(tile)) {
           console.log("move down...");
           this.player.move(tile.getX(), tile.getY());
           this.player.setPosition(tile.pos.x, tile.pos.y);
@@ -420,7 +430,7 @@ class World {
         }
         break;
       case "LEFT":
-        if (tile.getTileType() != Tile.BLOCK) {
+        if (!this.isWall(tile)) {
           console.log("move left...");
           this.player.move(tile.getX(), tile.getY());
           this.player.setPosition(tile.pos.x, tile.pos.y);
@@ -429,7 +439,7 @@ class World {
         }
         break;
       case "RIGHT":
-        if (tile.getTileType() != Tile.BLOCK) {
+        if (!this.isWall(tile)) {
           console.log("move right...");
           this.player.move(tile.getX(), tile.getY());
           this.player.setPosition(tile.pos.x, tile.pos.y);
@@ -438,17 +448,28 @@ class World {
         }
         break;
     }
-    // }
   }
 
   //===============================================================================
-  // private resetAlpha() {
-  //   for (let y = 0; y < this.height; y++) {
-  //     for (let x = 0; x < this.width; x++) {
-  //       this.tiles[y][x].getSprite().alpha = 1;
-  //     }
-  //   }
-  // }
+  private touchTile(touch:Point, tile: Tile){
+    return  touch.x === tile.getX() && touch.y === tile.getY();
+  }
+
+  private isWall(tile: Tile): boolean {
+    return tile.getTileType() === Tile.BLOCK;
+  }
+
+  private isHome(tile: Tile): boolean {
+    return tile.getTileType() === Tile.HOME;
+  }
+
+  private isEmpty(tile: Tile): boolean {
+    return tile.getTileType() === Tile.EMPTY;
+  }
+
+  private isBox(tile: Tile): boolean {
+    return tile.getTileType() === Tile.BOX;
+  }
 
   private drawBounds(tile: Tile) {
     this.graphics.drawRect(
@@ -459,3 +480,63 @@ class World {
     );
   }
 }
+
+// KEYBOARD
+
+interface Key {
+  value: string;
+  isDown: boolean;
+  isUp: boolean;
+  press: any; //function on press
+  release: any; //function on release
+}
+
+class Keyboard {
+  private key: Key;
+
+  constructor(value: string) {
+    this.addEventListeners();
+
+    this.key = {
+      value,
+      isDown: false,
+      isUp: false,
+      press: undefined,
+      release: undefined
+    };
+  }
+
+  private downHandler(event: KeyboardEvent) {
+    console.log("event down: ", event);
+    // if (event.key === "ArrowRight") {
+    //   //MOVE RIGHT
+    //   console.log("MOVE RIGHT....");
+    // }
+    // if (event.key === "ArrowDown") {
+    //   //MOVE DOWN
+    //   console.log("MOVE DOWN....");
+    // }
+  }
+
+  private upHandler(event: KeyboardEvent) {
+    console.log("event up: ", event);
+    // if (event.key === "ArrowRight") {
+    //   //STOP MOVING RIGHT
+    // }
+    // if (event.key === "ArrowDown") {
+    //   //MOVE DOWN
+    // }
+  }
+
+  public addEventListeners() {
+    window.addEventListener("keydown", this.downHandler.bind(this), false);
+    window.addEventListener("keyup", this.upHandler.bind(this), false);
+  }
+
+  public removeEventListeners() {
+    window.removeEventListener("keydown", this.downHandler);
+    window.removeEventListener("keyup", this.upHandler);
+  }
+}
+
+new Keyboard("Mo");

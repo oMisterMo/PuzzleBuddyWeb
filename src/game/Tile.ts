@@ -24,14 +24,12 @@ class Tile {
     y: number,
     type: TileType,
     tile: Point,
-    // sprite: PIXI.Sprite,
     stage: PIXI.Container
   ) {
     this.x = x;
     this.y = y;
     this.tileType = type; //Should be initialised with empty
     this.pos = tile;
-    // this.playerTile = { x: tile.x, y: tile.y };
 
     //Add sprite
     switch (this.tileType) {
@@ -60,6 +58,7 @@ class Tile {
     }
     stage.addChild(this.sprite);
     this.sprite.position.set(x, y);
+    console.log("sprite pos: ", this.sprite.position);
   }
 
   public setTileType(type: TileType) {
@@ -78,7 +77,7 @@ class Tile {
     return this.y;
   }
 
-  public getSprite() {
-    return this.sprite;
-  }
+  // public getSprite() {
+  //   return this.sprite;
+  // }
 }
